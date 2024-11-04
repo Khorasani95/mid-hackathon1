@@ -141,4 +141,10 @@ input::-moz-focus-inner {
   outline: none !important;
   width: 100%;
 }
+.form-control {
+  color: #000; /* Make the input text color black */
+  font-weight: 500; /* Make the text bolder */
+  background-color: #f9f9f9; /* Customize the background if needed */
+  border: 1px solid #ccc; /* Customize the border */
+}
 

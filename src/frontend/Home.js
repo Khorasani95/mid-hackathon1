@@ -97,6 +97,15 @@ function Home() {
   const handleUpdate = (product) => {
     setProductForEdit(product);
     setIsModalOpen(true);
+
+    let newEditesData = {
+      ...product,
+      product:productForEdit.productName,
+      userName:productForEdit.userName,
+      phone:productForEdit.phone,
+      website:productForEdit.website
+
+    }
   };
 
   const handleModalOk = () => setIsModalOpen(false);
@@ -193,7 +202,8 @@ function Home() {
       )}
 
       {/* Products Table */}
-      <table className="table mt-4">
+      <table className="table mt-4 table-responsive
+      ">
         <thead>
           <tr>
             <th>#</th>
@@ -223,10 +233,10 @@ function Home() {
 
       {/* Ant Design Modal for Update */}
       <Modal title="Update Product" open={isModalOpen} onOk={handleUpdate} onCancel={handleModalCancel}>
-        <input type="text" id='productName' name='productName' placeholder='productName....' onChange={handleEveryInputChange}/>
-        <input type="text" id='userName' name='userName' placeholder='userName...' onChange={handleEveryInputChange}/>
-        <input type="text" id='phone' name='phone' placeholder='phone....'  onChange={handleEveryInputChange}/>
-        <input type="text" id='website' name='website' placeholder='website....' onChange={handleEveryInputChange}/>
+        <input className='form-control' type="text" id='productName' name='productName' value={productForEdit.productName} placeholder='productName....' onChange={handleEveryInputChange}/>
+        <input className='form-control' type="text" id='userName' name='userName' value={productForEdit.userName} placeholder='userName...' onChange={handleEveryInputChange}/>
+        <input className='form-control' type="text" id='phone' name='phone' value={productForEdit.phone} placeholder='phone....'  onChange={handleEveryInputChange}/>
+        <input className='form-control' type="text" id='website' name='website' value={productForEdit.website} placeholder='website....' onChange={handleEveryInputChange}/>
       </Modal>
     </>
   );
